@@ -1,5 +1,8 @@
 import {Component} from 'react'
 import {v4 as uuidv4} from 'uuid'
+// import {formatDistanceToNow} from 'date-fns'
+import CommentItem from '../CommentItem'
+
 import './index.css'
 
 const initialContainerBackgroundClassNames = [
@@ -37,6 +40,7 @@ class Comments extends Component {
       name,
       comment,
       isLike: false,
+      // time: formatDistanceToNow(new Date()),
     }
     this.setState(prev => ({
       commentList: [...prev.commentList, newCommnet],
@@ -45,7 +49,7 @@ class Comments extends Component {
 
   render() {
     const {name, comment, commentList} = this.state
-    console.log(commentList)
+
     return (
       <div className="maincontainer">
         <div className="comments-img-card-container">
@@ -86,6 +90,17 @@ class Comments extends Component {
             <p className="count-para">0</p>
             <p className="count-cmmts-para">Comments</p>
           </div>
+          {commentList.length > 0 && (
+            <ul className="unorder">
+              {commentList.map(each => (
+                <CommentItem
+                  details={each}
+                  key={each.id}
+                  color={initialContainerBackgroundClassNames}
+                />
+              ))}
+            </ul>
+          )}
         </div>
       </div>
     )

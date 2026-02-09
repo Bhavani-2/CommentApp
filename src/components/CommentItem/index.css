@@ -27,3 +27,64 @@
 }
 
 /* Write your CSS here */
+* {
+  font-family: 'roboto';
+}
+.list {
+  display: flex;
+  flex-direction: column;
+}
+.name-commnts-container {
+  display: flex;
+}
+.name-commnts-time-container {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5px;
+}
+.name-time-container {
+  display: flex;
+  flex-direction: row;
+}
+.name-icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 15px;
+  text-align: center;
+  color: #dee0e3;
+  padding-top: 5px;
+  margin-right: 10px;
+}
+.name-heading {
+  color: #334155;
+  font-size: 20px;
+  margin-right: 10px;
+}
+.time-para {
+  color: #94a3b8;
+}
+.cmnt-para {
+  color: #7e858e;
+}
+.like-container {
+  display: flex;
+  justify-content: space-between;
+}
+.like-button {
+  background-color: transparent;
+  border: none;
+  display: flex;
+}
+.like-img {
+  width: 20px;
+  margin-right: 5px;
+  height: 20px;
+}
+.like-button-para {
+  margin-top: 2px;
+  color: #7e858e;
+}
+.delete-button {
+  background-color: transparent;
+  border: none;
+}

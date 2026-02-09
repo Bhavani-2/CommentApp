@@ -7,8 +7,7 @@
   flex-direction: column;
   align-items: center;
   padding: 10px;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
 }
 .comments-img-card-container {
   display: flex;
@@ -85,4 +84,10 @@
 }
 .count-cmmts-para {
   color: #475569;
+}
+.unorder {
+  display: flex;
+  flex-direction: column;
+  list-style-type: none;
+  width: 64vw;
 }
