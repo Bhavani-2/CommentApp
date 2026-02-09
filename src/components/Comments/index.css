@@ -1,1 +1,77 @@
 /* Write your CSS here */
+* {
+  font-family: 'roboto';
+}
+.maincontainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  height: 100vh;
+  width: 100vw;
+}
+.comments-img-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 80vw;
+}
+.comments-card-container {
+  display: flex;
+  flex-direction: column;
+}
+.heading {
+  color: #1e293b;
+}
+.para {
+  color: #475569;
+}
+.input {
+  outline: none;
+  border: 1px solid #dee0e3;
+  color: #1e293b;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  padding: 10px;
+}
+.button {
+  background-color: #0284c7;
+  color: #dee0e3;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  padding: 10px;
+  width: 150px;
+  margin-top: 10px;
+  border-radius: 7px;
+}
+.img {
+  width: 280px;
+  height: 350px;
+}
+.hr-line {
+  color: #94a3b8;
+  width: 60vw;
+  margin-top: 20px;
+}
+.entered-comments-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60vw;
+}
+.comment-count-container {
+  display: flex;
+  align-self: flex-start;
+}
+.count-para {
+  background-color: #0284c7;
+  color: #dee0e3;
+  text-align: center;
+  padding: 2px;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+.count-cmmts-para {
+  color: #475569;
+}
