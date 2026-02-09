@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import {v4 as uuidv4} from 'uuid'
 import './index.css'
 
 const initialContainerBackgroundClassNames = [
@@ -14,23 +15,63 @@ const initialContainerBackgroundClassNames = [
 // Write your code here
 
 class Comments extends Component {
+  state = {
+    commentList: [],
+    name: '',
+    comment: '',
+  }
+
+  inputValue = event => {
+    this.setState({name: event.target.value})
+  }
+
+  cmmntValue = event => {
+    this.setState({comment: event.target.value})
+  }
+
+  onAddCmmnt = event => {
+    event.preventDefault()
+    const {name, comment} = this.state
+    const newCommnet = {
+      id: uuidv4(),
+      name,
+      comment,
+      isLike: false,
+    }
+    this.setState(prev => ({
+      commentList: [...prev.commentList, newCommnet],
+    }))
+  }
+
   render() {
+    const {name, comment, commentList} = this.state
+    console.log(commentList)
     return (
       <div className="maincontainer">
         <div className="comments-img-card-container">
           <div className="comments-card-container">
             <h1 className="heading">Comments</h1>
             <p className="para">Say somithing about 4.0 Technologies</p>
-            <input className="input" type="text" placeholder="Your Name" />
-            <textarea
-              className="textarea"
-              rows="10"
-              cols="8"
-              placeholder="Your Comment"
-            />
-            <button className="button" type="submit">
-              Add Comment
-            </button>
+            <form className="form" onSubmit={this.onAddCmmnt}>
+              <input
+                onChange={this.inputValue}
+                className="input"
+                type="text"
+                placeholder="Your Name"
+                value={name}
+              />
+              <textarea
+                className="textarea"
+                onChange={this.cmmntValue}
+                rows="10"
+                cols="8"
+                placeholder="Your Comment"
+                name={comment}
+              />
+              <button className="button" type="submit">
+                Add Comment
+              </button>
+            </form>
           </div>
           <img
             src="https://assets.ccbp.in/frontend/react-js/comments-app/comments-img.png"

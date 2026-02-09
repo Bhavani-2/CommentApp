@@ -26,6 +26,10 @@
 .para {
   color: #475569;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+}
 .input {
   outline: none;
   border: 1px solid #dee0e3;
@@ -33,6 +37,13 @@
   margin-top: 5px;
   margin-bottom: 5px;
   padding: 10px;
+}
+.textarea {
+  border: 1px solid #dee0e3;
+  color: #1e293b;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  outline: none;
 }
 .button {
   background-color: #0284c7;
