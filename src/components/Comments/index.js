@@ -22,6 +22,7 @@ class Comments extends Component {
     commentList: [],
     name: '',
     comment: '',
+    colorClass: initialContainerBackgroundClassNames[0],
   }
 
   inputValue = event => {
@@ -34,17 +35,38 @@ class Comments extends Component {
 
   onAddCmmnt = event => {
     event.preventDefault()
-    const {name, comment} = this.state
+    const {name, comment, colorClass} = this.state
+    const number = Math.ceil(Math.random() * (colorClass.length - 1))
     const newCommnet = {
       id: uuidv4(),
       name,
       comment,
       isLike: false,
-      // time: formatDistanceToNow(new Date()),
+      colorClass: initialContainerBackgroundClassNames[number],
     }
+
     this.setState(prev => ({
       commentList: [...prev.commentList, newCommnet],
+      name: '',
+      comment: '',
     }))
+  }
+
+  onClickLike = id => {
+    this.setState(prev => ({
+      commentList: prev.commentList.map(each => {
+        if (id === each.id) {
+          return {...each, isLike: !each.isLike}
+        }
+        return each
+      }),
+    }))
+  }
+
+  onClickDelete = id => {
+    const {commentList} = this.state
+    const filteredData = commentList.filter(each => each.id !== id)
+    this.setState({commentList: filteredData})
   }
 
   render() {
@@ -70,7 +92,7 @@ class Comments extends Component {
                 rows="10"
                 cols="8"
                 placeholder="Your Comment"
-                name={comment}
+                value={comment}
               />
               <button className="button" type="submit">
                 Add Comment
@@ -87,7 +109,7 @@ class Comments extends Component {
         <hr className="hr-line" />
         <div className="entered-comments-container">
           <div className="comment-count-container">
-            <p className="count-para">0</p>
+            <p className="count-para">{commentList.length}</p>
             <p className="count-cmmts-para">Comments</p>
           </div>
           {commentList.length > 0 && (
@@ -96,7 +118,8 @@ class Comments extends Component {
                 <CommentItem
                   details={each}
                   key={each.id}
-                  color={initialContainerBackgroundClassNames}
+                  onClickLike={this.onClickLike}
+                  onClickDelete={this.onClickDelete}
                 />
               ))}
             </ul>

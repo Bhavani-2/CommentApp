@@ -62,9 +62,12 @@
 }
 .time-para {
   color: #94a3b8;
+  font-size: 12px;
+  margin-top: 18px;
 }
 .cmnt-para {
   color: #7e858e;
+  margin-top: 0px;
 }
 .like-container {
   display: flex;
@@ -74,6 +77,7 @@
   background-color: transparent;
   border: none;
   display: flex;
+  cursor: pointer;
 }
 .like-img {
   width: 20px;
@@ -87,4 +91,13 @@
 .delete-button {
   background-color: transparent;
   border: none;
+  cursor: pointer;
+}
+.like-text {
+  color: #0ea5e9;
+  margin-top: 2px;
+}
+.list-hr-line {
+  color: #94a3b8;
+  width: 60vw;
 }
